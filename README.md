@@ -1,8 +1,8 @@
-Currency Converter App (FXConvert)
+**Currency Converter App (FXConvert)**
 
 A sleek, responsive web app built with React and Tailwind CSS to convert currencies in real-time with up-to-date exchange rates.
 
- Features
+** Features**
 
 Real-time currency conversion between multiple currencies
 
@@ -14,7 +14,7 @@ Fully responsive design for desktop and mobile
 
 Optional integration with external API for live rates
 
-Tech Stack
+**Tech Stack**
 
 Frontend: React + Tailwind CSS
 
@@ -25,34 +25,33 @@ Data: Optional external API (e.g., ExchangeRate-API
 
 Other: JavaScript (Vanilla for logic), HTML5
 
- Installation & Setup
+** Installation & Setup**
 
-Clone the repository
+1. Clone the repository
 
 git clone https://github.com/Samri2/currency-converter-app.git
 cd currency-converter-app
 
 
-Install dependencies
+2.Install dependencies
 
 npm install
 
 
-Run the project
+3.Run the project
 
 npm run dev
 
-
 Open your browser at http://localhost:5173
 
-📦 Project Structure
-
+**Project Structure
+**
 src/components → Reusable React components (AmountInput.jsx, conversionResult.jsx, CurrencySelector.jsx)
 
 src/pages → App pages (Home, Converter, about)
 
 
- Future Improvements
+** Future Improvements**
 
 Full historical currency charts
 
@@ -62,7 +61,7 @@ Advanced form validation
 
 Multi-language support
 
-Notes
+**Notes**
 
 Built with React + Tailwind for fast styling and responsive design
 
