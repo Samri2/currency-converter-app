@@ -1,39 +1,69 @@
-<<<<<<< HEAD
-# React + Vite
+Currency Converter App (FXConvert)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive web app built with React and Tailwind CSS to convert currencies in real-time with up-to-date exchange rates.
 
-Currently, two official plugins are available:
+ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Real-time currency conversion between multiple currencies
 
-## Expanding the ESLint configuration
+Exchange rate info cards for quick reference
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# currency-converter-app
-# Currency Converter App A simple web app to convert currencies in real-time with accurate exchange rates.
-# Currency Converter App
+User-friendly input forms with basic validation
 
-## Project Description
-FXConvert is a web application that allows users to convert currencies in real-time. Users can see the latest exchange rates, convert amounts between different currencies, and track historical trends.
+Fully responsive design for desktop and mobile
 
-## Features
-- Real-time currency conversion
-- Exchange rate info cards
-- User-friendly input forms
-- Responsive design for desktop and mobile
-- Basic form validation
+Optional integration with external API for live rates
 
-## Tech Stack
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- Optional: External API for live rates (e.g., ExchangeRate-API)
+Tech Stack
 
-## Installation & Running the Project
-1. Clone the repository:
-   ```bash
-   git clone <your-repo-url>
->>>>>>> 36be7c0842b0a5e1b39154abab72a0f39c2665f5
+Frontend: React + Tailwind CSS
+
+Styling: Tailwind CSS
+
+Data: Optional external API (e.g., ExchangeRate-API
+)
+
+Other: JavaScript (Vanilla for logic), HTML5
+
+ Installation & Setup
+
+Clone the repository
+
+git clone https://github.com/Samri2/currency-converter-app.git
+cd currency-converter-app
+
+
+Install dependencies
+
+npm install
+
+
+Run the project
+
+npm run dev
+
+
+Open your browser at http://localhost:5173
+
+📦 Project Structure
+
+src/components → Reusable React components (AmountInput.jsx, conversionResult.jsx, CurrencySelector.jsx)
+
+src/pages → App pages (Home, Converter, about)
+
+
+ Future Improvements
+
+Full historical currency charts
+
+Theme toggle (light/dark mode)
+
+Advanced form validation
+
+Multi-language support
+
+Notes
+
+Built with React + Tailwind for fast styling and responsive design
+
+Can be extended with Redux or Context API for state management
