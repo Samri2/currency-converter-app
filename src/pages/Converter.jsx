@@ -1,72 +1,60 @@
-// src/pages/Converter.jsx
-import { useEffect, useState } from "react";
-import CurrencySelector from "../components/CurrencySelector";
-import AmountInput from "../components/AmountInput";
-import ConversionResult from "../components/ConversionResult";
+import React, { useState, useEffect } from "react";
 
 export default function Converter() {
-  const [currencies, setCurrencies] = useState([]);
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("EUR");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState("");
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("EUR");
+  const [rates, setRates] = useState({});
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("https://api.exchangerate-api.com/v4/latest/USD")
       .then((res) => res.json())
-      .then((data) => setCurrencies(Object.keys(data.rates)))
-      .catch((err) => console.error(err));
+      .then((data) => setRates(data.rates))
+      .catch(() => setError("Failed to load exchange rates"));
   }, []);
 
-  const handleConvert = () => {
-    fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const rate = data.rates[toCurrency];
-        setResult(amount * rate);
-      })
-      .catch((err) => alert("Error fetching conversion data"));
+  const convert = () => {
+    if (!rates[from] || !rates[to]) {
+      setError("Invalid currency selection");
+      return;
+    }
+    const converted = (amount / rates[from]) * rates[to];
+    setResult(`${amount} ${from} = ${converted.toFixed(2)} ${to}`);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-12 px-6">
-      <h1 className="text-3xl font-bold text-blue-700 mb-6">
-        Currency Converter 💹
-      </h1>
+    <div className="converter-container">
+      <h1>Currency Converter 💱</h1>
 
-      <div className="bg-white shadow-md rounded-2xl p-8 w-full max-w-md space-y-4">
-        <CurrencySelector
-          label="From"
-          currencies={currencies}
-          value={fromCurrency}
-          onChange={(e) => setFromCurrency(e.target.value)}
-        />
+      <input
+        type="number"
+        placeholder="Enter amount"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
 
-        <CurrencySelector
-          label="To"
-          currencies={currencies}
-          value={toCurrency}
-          onChange={(e) => setToCurrency(e.target.value)}
-        />
+      <div className="currency-select">
+        <select value={from} onChange={(e) => setFrom(e.target.value)}>
+          {Object.keys(rates).map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
 
-        <AmountInput value={amount} onChange={(e) => setAmount(e.target.value)} />
+        <button onClick={() => { const t = from; setFrom(to); setTo(t); }}>🔁</button>
 
-        <button
-          onClick={handleConvert}
-          className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition"
-        >
-          Convert
-        </button>
-
-        {result && (
-          <ConversionResult
-            from={fromCurrency}
-            to={toCurrency}
-            amount={amount}
-            result={result}
-          />
-        )}
+        <select value={to} onChange={(e) => setTo(e.target.value)}>
+          {Object.keys(rates).map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
       </div>
+
+      <button onClick={convert} className="convert-btn">Convert</button>
+
+      {error && <p className="error">{error}</p>}
+      {result && <h2>{result}</h2>}
     </div>
   );
 }
