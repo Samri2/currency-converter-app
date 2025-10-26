@@ -1,16 +1,23 @@
+import "../index.css";
+
 export default function About() {
   return (
-    <div className="about-page">
-      <h1>About FX Converter</h1>
-      <p>
-        FX Converter helps users convert currencies and track live rates in real-time using ExchangeRate API.
-      </p>
-      <ul>
-        <li>✅ Real-time exchange rates</li>
-        <li>✅ Responsive design</li>
-        <li>✅ Built with React & Tailwind (later)</li>
-      </ul>
-      <p className="credit">Developed by SamSec 💻</p>
+    <div className="about-container">
+      <div className="about-card">
+        <h2>About FX Converter</h2>
+        <p>
+          FX Converter helps users convert currencies and track exchange rates in real-time using the ExchangeRate API.
+        </p>
+        <ul>
+          <li> Real-time exchange rates</li>
+          <li> Responsive Design</li>
+          <li> React + Tailwind UI</li>
+        </ul>
+        <p className="text-center text-gray-500">
+          Built with <b>React </b>, <b>css</b>, and <b>ExchangeRate API </b>
+        </p>
+        <p className="text-center text-gray-400">Developed by <b>SamSec 💻</b></p>
+      </div>
     </div>
   );
 }

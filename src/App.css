@@ -17,6 +17,43 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+/* App.css */
+
+/* Navbar */
+.navbar {
+  background-color: #4c1d95; /* Indigo-900 */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-weight: bold;
+  font-size: 1.25rem; /* text-xl */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem; /* space-x-4 */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: #6b7280; /* gray-500 */
+  padding: 1rem 0;
+}
 
 @keyframes logo-spin {
   from {

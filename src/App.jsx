@@ -1,22 +1,30 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Converter from "./pages/Converter";
+import About from "./pages/About";
+import "./App.css"; // import the CSS
 
 export default function App() {
-  const [page, setPage] = useState("home");
-
   return (
-    <div>
-      <nav style={{ background: "#eee", padding: "10px" }}>
-        <button onClick={() => setPage("home")}>Home</button>
-        <button onClick={() => setPage("about")}>About</button>
-        <button onClick={() => setPage("converter")}>Converter</button>
+    <Router>
+      <nav className="navbar">
+        <h1>💸 FX Converter</h1>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/converter">Converter</Link>
+          <Link to="/about">About</Link>
+        </div>
       </nav>
 
-      {page === "home" && <Home />}
-      {page === "about" && <About />}
-      {page === "converter" && <Converter />}
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/converter" element={<Converter />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+
+      <footer className="footer">
+        © 2025 SamSec — React + Tailwind + ExchangeRate API
+      </footer>
+    </Router>
   );
 }

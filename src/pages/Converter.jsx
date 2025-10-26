@@ -1,60 +1,77 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import "../index.css";
 
 export default function Converter() {
-  const [amount, setAmount] = useState("");
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("EUR");
-  const [rates, setRates] = useState({});
+  const [amount, setAmount] = useState(1);
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("EUR");
+  const [rate, setRate] = useState(null);
   const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
+  const [currencies, setCurrencies] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.exchangerate-api.com/v4/latest/USD")
-      .then((res) => res.json())
-      .then((data) => setRates(data.rates))
-      .catch(() => setError("Failed to load exchange rates"));
+    fetchRates();
   }, []);
 
-  const convert = () => {
-    if (!rates[from] || !rates[to]) {
-      setError("Invalid currency selection");
-      return;
+  const fetchRates = async () => {
+    try {
+      const res = await fetch("https://open.er-api.com/v6/latest/USD");
+      const data = await res.json();
+      setCurrencies(Object.keys(data.rates));
+      setRate(data.rates[toCurrency]);
+    } catch (error) {
+      console.error("Error loading rates:", error);
     }
-    const converted = (amount / rates[from]) * rates[to];
-    setResult(`${amount} ${from} = ${converted.toFixed(2)} ${to}`);
+  };
+
+  const convert = async () => {
+    try {
+      const res = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`);
+      const data = await res.json();
+      const conversionRate = data.rates[toCurrency];
+      setRate(conversionRate);
+      const converted = amount * conversionRate;
+      setResult(converted.toFixed(2));
+    } catch (error) {
+      console.error("Error converting:", error);
+    }
   };
 
   return (
     <div className="converter-container">
-      <h1>Currency Converter 💱</h1>
+      <div className="converter-card">
+        <h2>Currency Converter </h2>
 
-      <input
-        type="number"
-        placeholder="Enter amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Enter Amount"
+        />
 
-      <div className="currency-select">
-        <select value={from} onChange={(e) => setFrom(e.target.value)}>
-          {Object.keys(rates).map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
+        <div className="select-group">
+          <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
+            {currencies.map((cur) => (
+              <option key={cur} value={cur}>{cur}</option>
+            ))}
+          </select>
 
-        <button onClick={() => { const t = from; setFrom(to); setTo(t); }}>🔁</button>
+          <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
+            {currencies.map((cur) => (
+              <option key={cur} value={cur}>{cur}</option>
+            ))}
+          </select>
+        </div>
 
-        <select value={to} onChange={(e) => setTo(e.target.value)}>
-          {Object.keys(rates).map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
+        <button className="convert-btn" onClick={convert}>Convert</button>
+
+        {result && (
+          <div className="result">
+            <p>{amount} {fromCurrency} = {result} {toCurrency}</p>
+            <p>Rate: {rate?.toFixed(3)}</p>
+          </div>
+        )}
       </div>
-
-      <button onClick={convert} className="convert-btn">Convert</button>
-
-      {error && <p className="error">{error}</p>}
-      {result && <h2>{result}</h2>}
     </div>
   );
 }
