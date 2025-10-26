@@ -1,6 +1,6 @@
 Currency Converter App (FXConvert)
 
-A sleek, responsive web app built with React and Tailwind CSS to convert currencies in real-time with up-to-date exchange rates.
+A sleek, responsive web app built with React and CSS to convert currencies in real-time with up-to-date exchange rates.
 
  Features
 
@@ -16,9 +16,9 @@ Optional integration with external API for live rates
 
 Tech Stack
 
-Frontend: React + Tailwind CSS
+Frontend: React + CSS
 
-Styling: Tailwind CSS
+Styling:  CSS
 
 Data: Optional external API (e.g., ExchangeRate-API
 )
