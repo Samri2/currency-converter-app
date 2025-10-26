@@ -9,6 +9,8 @@
 body {
   background: linear-gradient(180deg, #3B82F6, #1E3A8A);
   color: white;
+  min-height: 100vh;
+  
 }
 
 /* --- Landing Page --- */
