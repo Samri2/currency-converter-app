@@ -23,7 +23,7 @@ export default function App() {
       </Routes>
 
       <footer className="footer">
-        © 2025 SamSec — React + Tailwind + ExchangeRate API
+        © 2025 SamSec — React + CSS + ExchangeRate API
       </footer>
     </Router>
   );

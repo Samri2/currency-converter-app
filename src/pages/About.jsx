@@ -11,7 +11,7 @@ export default function About() {
         <ul>
           <li> Real-time exchange rates</li>
           <li> Responsive Design</li>
-          <li> React + Tailwind UI</li>
+          <li> React + css UI</li>
         </ul>
         <p className="text-center text-gray-500">
           Built with <b>React </b>, <b>css</b>, and <b>ExchangeRate API </b>
