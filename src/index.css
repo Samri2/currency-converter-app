@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #3B82F6, #1E3A8A);
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-button {
+  background: linear-gradient(90deg, #4F46E5, #3B82F6);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.exchange-card {
+  background: white;
+  color: #1E3A8A;
+  width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.converter-container {
+  background: white;
+  color: #1E3A8A;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.converter-container input,
+.converter-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+}
+
+.convert-btn {
+  background: linear-gradient(90deg, #4F46E5, #3B82F6);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.about-page {
+  background: white;
+  color: #1E3A8A;
+  margin: 40px auto;
+  padding: 40px;
+  max-width: 700px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
