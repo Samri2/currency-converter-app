@@ -5,12 +5,41 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
-
+/*
 body {
   background: linear-gradient(180deg, #3B82F6, #1E3A8A);
   color: white;
   min-height: 100vh;
   
+}
+*/
+
+/* --- Body Wrapper for Sticky Footer --- */
+body {
+  
+  
+  min-height: 100vh; /* already there */
+  background: linear-gradient(180deg, #3B82F6, #1E3A8A);
+  color: white;
+  margin: 0;
+}
+
+/* --- Main content pushes footer down --- */
+section {
+
+  flex: 1 0 auto; 
+  /* takes up remaining space */
+    padding-bottom: 110px;
+}
+
+
+/* --- Footer Styles --- */
+footer {
+  background: #1E3A8A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
 }
 
 /* --- Landing Page --- */
@@ -140,7 +169,7 @@ body {
 
 /* --- About Page --- */
 .about-page {
-  background: white;
+  background: rgb(154, 186, 231);
   color: #1E3A8A;
   margin: 40px auto;
   padding: 40px;
@@ -160,20 +189,23 @@ body {
 .about-page p {
   color: #4b5563;
   margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .about-page ul {
   list-style-type: disc;
-  padding-left: 1.25rem;
-  color: #4b5563;
+  padding-left: 0 rem;
+  color: #1e232a;
   margin-bottom: 1rem;
 }
 
 .about-page p.text-gray-500 {
-  color: #6b7280;
+  color: #1e273a;
+  margin-bottom: 1rem;
 }
 
 .about-page p.text-gray-400 {
-  color: #9ca3af;
+  color: #1d2b43;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }

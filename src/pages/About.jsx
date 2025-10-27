@@ -2,8 +2,8 @@ import "../index.css";
 
 export default function About() {
   return (
-    <div className="about-container">
-      <div className="about-card">
+    <section className="about-page">
+     
         <h2>About FX Converter</h2>
         <p>
           FX Converter helps users convert currencies and track exchange rates in real-time using the ExchangeRate API.
@@ -13,11 +13,11 @@ export default function About() {
           <li> Responsive Design</li>
           <li> React + css UI</li>
         </ul>
-        <p className="text-center text-gray-500">
+        <p className="text-gray-500">
           Built with <b>React </b>, <b>css</b>, and <b>ExchangeRate API </b>
         </p>
-        <p className="text-center text-gray-400">Developed by <b>SamSec 💻</b></p>
-      </div>
-    </div>
+        <p className="text-gray-400">Developed by <b>SamSec 💻</b></p>
+    
+    </section>
   );
 }
